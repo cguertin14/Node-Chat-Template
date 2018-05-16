@@ -1,10 +1,13 @@
 {
-  "name": "Template NodeJS server",
+  "name": "NodeChatTemplate",
   "version": "1.0.0",
-  "description": "Template Node.js server (express, mocha, etc)",
+  "description": "Template Node.js chat server (express, mocha, etc)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node server/server.js",
+    "nodemon": "nodemon server/server.js --exec babel-node",
+    "test": "export NODE_ENV=test && mocha --compilers js:babel-register server/**/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'"
   },
   "author": "Charles Guertin",
   "license": "ISC",
